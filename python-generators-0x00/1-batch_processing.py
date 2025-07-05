@@ -4,7 +4,7 @@ def stream_users_in_batches(batch_size):
     connection = mysql.connector.connect(
         host='localhost',
         user='Nafiad',
-        password='Nafiad@mysql12'
+        password='Nafiad@mysql12',
         database='ALX_prodev'
     )
 
