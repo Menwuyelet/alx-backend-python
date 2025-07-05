@@ -3,8 +3,8 @@ import mysql.connector
 def stream_users_in_batches(batch_size):
     connection = mysql.connector.connect(
         host='localhost',
-        user='your_mysql_user',
-        password='your_mysql_password',
+        user='Nafiad',
+        password='Nafiad@mysql12'
         database='ALX_prodev'
     )
 
