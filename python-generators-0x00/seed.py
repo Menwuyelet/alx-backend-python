@@ -40,29 +40,10 @@ def create_table(connection):
     connection.commit()
     cursor.close()
 
-def insert_data(connection, data):
+def insert_data(connection, filename):
     cursor = connection.cursor()
 
-    for row in data:
-        cursor.execute("SELECT COUNT(*) FROM user_data WHERE user_id = %s", (row['user_id'],))
-        (count,) = cursor.fetchone()
-        if count == 0:
-            insert_query = """
-            INSERT INTO user_data (user_id, name, email, age)
-            VALUES (%s, %s, %s, %s)
-            """
-            cursor.execute(insert_query, (row['user_id'], row['name'], row['email'], row['age']))
-            print(f"Inserted user_id {row['user_id']}")
-        else:
-            print(f"user_id {row['user_id']} already exists, skipping.")
-    
-    connection.commit()
-    cursor.close()
-
-
-def read_csv(filepath):
-    data = []
-    with open(filepath, newline='', encoding='utf-8') as csvfile:
+    with open(filename, newline='', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             user_id = row.get('user_id')
@@ -77,13 +58,20 @@ def read_csv(filepath):
             except Exception:
                 age = 0
 
-            data.append({
-                'user_id': user_id,
-                'name': name,
-                'email': email,
-                'age': age
-            })
-    return data
+            cursor.execute("SELECT COUNT(*) FROM user_data WHERE user_id = %s", (user_id,))
+            (count,) = cursor.fetchone()
+            if count == 0:
+                insert_query = """
+                INSERT INTO user_data (user_id, name, email, age)
+                VALUES (%s, %s, %s, %s)
+                """
+                cursor.execute(insert_query, (user_id, name, email, age))
+                print(f"Inserted user_id {user_id}")
+            else:
+                print(f"user_id {user_id} already exists, skipping.")
+    connection.commit()
+    cursor.close()
+
 
 def main():
     conn = connect_db()
@@ -91,8 +79,7 @@ def main():
     conn.close()
     conn = connect_to_prodev()
     create_table(conn)
-    data = read_csv('user_data.csv') 
-    insert_data(conn, data)
+    insert_data(conn, 'user_data.csv')
 
     conn.close()
 

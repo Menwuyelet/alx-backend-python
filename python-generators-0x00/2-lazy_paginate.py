@@ -21,7 +21,7 @@ def paginate_users(page_size, offset):
     return rows
 
 
-def lazy_paginate(page_size):
+def lazy_pagination(page_size):
     offset = 0
 
     while True:
