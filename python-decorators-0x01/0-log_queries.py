@@ -1,22 +1,25 @@
 import sqlite3
 import functools
 import logging
-import time
+from datetime import datetime
 #### decorator to lof SQL queries
 
 """ YOUR CODE GOES HERE"""
 
-logging.basicConfig(level = logging.INFO, format = '%(asctime)s - %(message)s')
+#logging.basicConfig(level = logging.INFO, format = '%(asctime)s - %(message)s')
 
 def log_queries(func):
     functools.wraps(func)
     def wrapper(*args, **kwargs):
-        start_time = time.time()
-        logging.info(f"Execution of query function '{func.__name__}' started.")
-        logging.info(f"args = {args}, kwargs = {kwargs}")
+        start_time = datetime.now()
+        #logging.info(f"Execution of query function '{func.__name__}' started.")
+        print(f"{datetime.now()} - Execution of query function '{func.__name__}' started.")
+        # logging.info(f"args = {args}, kwargs = {kwargs}")
+        print(f"{datetime.now()} - args = {args}, kwargs = {kwargs}")
         result = func(*args, **kwargs)  
-        end_time = time.time()
-        logging.info(f"Execution of query function '{func.__name__}'' ended. execution time: {end_time - start_time}s")    
+        end_time = datetime.now()
+        # logging.info(f"Execution of query function '{func.__name__}'' ended. execution time: {end_time - start_time}s")  
+        print(f"{datetime.now()} - Execution of query function '{func.__name__}'' ended. execution time: {end_time - start_time}s")  
         return result
     return wrapper
 @log_queries
