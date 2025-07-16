@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
-"""Unit tests for access_nested_map function from utils module."""
-from utils import access_nested_map, get_json
+"""Unit tests for
+access_nested_map,
+get_json,
+and memoize functions from utils module.
+"""
+from utils import access_nested_map, get_json, memoize
 from parameterized import parameterized
 import unittest
 from unittest import mock
@@ -53,7 +57,7 @@ class TestGetJson(unittest.TestCase):
     ) -> None:
         """
         Test that get_json method returns expected result for the given urls
-        with out calling the actual http calls.
+        without calling the actual http calls.
         """
         with mock.patch('utils.requests.get') as mocked:
             mock_response = mock.Mock()
@@ -63,6 +67,37 @@ class TestGetJson(unittest.TestCase):
             result = get_json(url)
             mocked.assert_called_once_with(url)
             self.assertEqual(result, expected)
+
+
+class TestMemoize(unittest.TestCase):
+    """Test case for memoize function from utils module."""
+    def test_memoize(self):
+        """
+        Test that memoize method returns expected result by calling
+        the a_method only once.
+        """
+        class TestClass:
+            def a_method(self):
+                return 42
+
+            @memoize
+            def a_property(self):
+                return self.a_method()
+
+        with mock.patch.object(
+            TestClass,
+            'a_method',
+            return_value=42
+        ) as mock_method:
+            instance = TestClass()
+
+            result1 = instance.a_property
+            result2 = instance.a_property
+
+            self.assertEqual(result1, 42)
+            self.assertEqual(result2, 42)
+
+            mock_method.assert_called_once()
 
 
 if __name__ == '__main__':
