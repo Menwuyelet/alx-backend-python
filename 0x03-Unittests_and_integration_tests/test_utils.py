@@ -21,7 +21,7 @@ class TestAccessNestedMap(unittest.TestCase):
         self,
         nested_map: dict,
         path: tuple,
-        expected: object
+        expected: int
     ) -> None:
         """
         Test that access_nested_map returns expected result for the given path.
@@ -36,7 +36,7 @@ class TestAccessNestedMap(unittest.TestCase):
         self,
         nested_map: dict,
         path: tuple,
-        expected: object
+        expected: int
     ) -> None:
         """
         Test that access_nested_map raises "KeyError" for the unavailable paths
