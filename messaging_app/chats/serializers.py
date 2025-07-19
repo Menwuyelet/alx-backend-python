@@ -33,7 +33,7 @@ class MessageSerializer(serializers.ModelSerializer):
         read_only_fields = ['message_id', 'sent_at']
     
 class ConversationSerializer(serializers.ModelSerializer):
-    participants = UserSerializer(source='participants_id', read_only=True)
+    participants = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), many=True)
     messages = MessageSerializer(many=True, read_only=True)
     class Meta:
         model = Conversation

@@ -51,12 +51,11 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 class Conversation(models.Model):
     conversation_id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    participants_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='conversations_having')
+    participants_id = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="conversations_having")
     created_at = models.DateTimeField(auto_now_add=True)
 
-    ## updated field:
-    # participants_id = models.ManyToManyField(settings.AUTH_USER, related_name="conversations_having")
-    
+    # participants_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='conversations_having')
+   
     def __str__(self):
         return f"Conversation id {self.conversation_id} with user {self.participants_id}"
     
