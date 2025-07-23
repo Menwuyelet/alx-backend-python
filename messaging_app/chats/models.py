@@ -47,6 +47,10 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+    
+    @property
+    def id(self):
+      return self.user_id
 
 
 class Conversation(models.Model):

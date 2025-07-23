@@ -1,5 +1,5 @@
 from rest_framework import routers
-from .views import ConversationViewSet, MessageViewSet, UserCreateViewSet
+from .views import ConversationViewSet, MessageViewSet
 from django.urls import path, include
 from rest_framework_nested.routers import NestedDefaultRouter
 router = routers.DefaultRouter()
