@@ -5,6 +5,7 @@ from .serializers import ConversationSerializer, UserSerializer, MessageSerializ
 from .models import Conversation, User, Message
 from .permissions import IsParticipantOrSender, IsParticipantOfConversation
 from rest_framework.exceptions import PermissionDenied
+from rest_framework.response import Response
 # Create your views here.
 
 class ConversationViewSet(viewsets.ModelViewSet):
@@ -30,11 +31,16 @@ class MessageViewSet(viewsets.ModelViewSet):
         try:
             conversation = Conversation.objects.get(id=conversation_id)
         except Conversation.DoesNotExist:
-            raise PermissionDenied("Conversation does not exist.")
+                return Response(
+                    {"detail": "You are not authorized to access this conversation."},
+                    status=status.HTTP_403_FORBIDDEN
+                )
 
         if self.request.user not in conversation.participants.all():
-            raise PermissionDenied("You are not a participant of this conversation.")
-
+                return Response(
+                    {"detail": "You are not authorized to access this conversation."},
+                    status=status.HTTP_403_FORBIDDEN
+                )
         return Message.objects.filter(conversation=conversation)
 
     def perform_create(self, serializer):
@@ -42,7 +48,9 @@ class MessageViewSet(viewsets.ModelViewSet):
         conversation = Conversation.objects.get(id=conversation_id)
 
         if self.request.user not in conversation.participants.all():
-            raise PermissionDenied("You are not allowed to send a message in this conversation.")
-
+                return Response(
+                    {"detail": "You are not authorized to access this conversation."},
+                    status=status.HTTP_403_FORBIDDEN
+                )
         serializer.save(sender=self.request.user, conversation=conversation)
 
