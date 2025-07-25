@@ -7,8 +7,8 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['user_id', 'email', 'first_name', 'last_name', 'phone_number', 'password', 'role']
-        read_only_fields = ['user_id']
+        fields = ['id', 'email', 'first_name', 'last_name', 'phone_number', 'password', 'role', 'full_name']
+        read_only_fields = ['id', 'full_name']
     
     def get_full_name(self, obj):
         return f"{obj.first_name} {obj.last_name}"
@@ -26,18 +26,18 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 class MessageSerializer(serializers.ModelSerializer):
-    sender = UserSerializer(source='sender_id', read_only=True)
+    sender = UserSerializer('sender', read_only=True)
     class Meta:
         model = Message
-        fields = ['message_id', 'sender_id', 'message_body', 'sent_at', 'conversation_id']
-        read_only_fields = ['message_id', 'sent_at']
+        fields = ['id', 'sender', 'message_body', 'sent_at']
+        read_only_fields = ['id', 'sent_at']
     
 class ConversationSerializer(serializers.ModelSerializer):
     participants = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), many=True)
     messages = MessageSerializer(many=True, read_only=True)
     class Meta:
         model = Conversation
-        fields = ['conversation_id', 'participants_id', 'created_at']
-        read_only_fields = ['conversation_id', 'created_at']
+        fields = ['id', 'participants','messages', 'created_at']
+        read_only_fields = ['id', 'created_at']
 
 

@@ -3,27 +3,27 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 from django.conf import settings
 import uuid
 class UserManager(BaseUserManager):
-    def create_user(self, first_name, last_name, email, phone_number, role, password):
+    def create_user(self, first_name, last_name, email, role, password, phone_number):
         if not first_name or not last_name:
             raise ValueError("First and last name of the user are required.")
         if not email:
             raise ValueError("Email is required.")
         
         email = self.normalize_email(email)
-        user = self.model(first_name=first_name, last_name=last_name, email=email, phone_number=phone_number, role=role)
+        user = self.model(first_name=first_name, last_name=last_name, email=email, role=role, phone_number=phone_number,)
         user.set_password(password)
         user.save(using=self._db)
         return user
     
-    def create_superuser(self, first_name, last_name, email, phone_number, role, password):
-        user = self.create_user(first_name=first_name, last_name=last_name, email=email, phone_number=phone_number, role=role, password=password)
+    def create_superuser(self, first_name, last_name, email, role, password, phone_number="111111111"):
+        user = self.create_user(first_name=first_name, last_name=last_name, email=email, role=role, password=password, phone_number=phone_number,)
         user.is_superuser = True
         user.is_staff = True
         user.save(using=self._db)  
         return user
 
 class User(AbstractBaseUser, PermissionsMixin):
-    user_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     first_name = models.CharField(max_length=150, null=False)
     last_name = models.CharField(max_length=150, null=False)
     email = models.EmailField(max_length=250, unique=True, null=False)
@@ -48,28 +48,25 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
     
-    @property
-    def id(self):
-      return self.user_id
 
 
 class Conversation(models.Model):
-    conversation_id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    participants_id = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="conversations_having")
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    participants = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="conversations_having")
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # participants_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='conversations_having')
+    # participants = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='conversations_having')
    
     def __str__(self):
-        return f"Conversation id {self.conversation_id} with user {self.participants_id}"
+        return f"Conversation between: {', '.join([user.email for user in self.participants.all()])}"
     
-
+     
 class Message(models.Model):
-    message_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    sender_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='sent_messages')
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    sender = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='sent_messages')
     message_body = models.TextField(null=False)
     sent_at = models.DateTimeField(auto_now_add=True)
-    conversation_id = models.ForeignKey(Conversation, on_delete=models.CASCADE, related_name='messages')
+    conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE, related_name='messages')
     
     def __str__(self):
-        return f"Message id {self.message_id} sent by {self.sender_id}"
+        return f"Message id {self.id} sent by {self.sender}"
