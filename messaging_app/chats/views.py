@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from .serializers import ConversationSerializer, UserSerializer, MessageSerializer
 from .models import Conversation, User, Message
 from .permissions import IsParticipantOrSender, IsParticipantOfConversation
-from rest_framework.exceptions import PermissionDenied, NotFound
+from rest_framework.exceptions import PermissionDenied, NotFound, APIException
 from rest_framework.response import Response
 from .filters import MessageFilter
 from django_filters.rest_framework import DjangoFilterBackend
@@ -41,8 +41,11 @@ class MessageViewSet(viewsets.ModelViewSet):
         except Conversation.DoesNotExist:
             return Message.objects.none()
 
+
         if self.request.user not in conversation.participants.all():
-            return Message.objects.none()
+            ex = APIException("You are not authorized to access this conversation.")
+            ex.status_code = status.HTTP_403_FORBIDDEN
+            raise ex
 
         return Message.objects.filter(conversation=conversation)
 
