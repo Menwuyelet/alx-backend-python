@@ -1,4 +1,5 @@
-import logging, datetime
+import logging
+from datetime import datetime
 
 logging.basicConfig(
     filename='requests.log',
