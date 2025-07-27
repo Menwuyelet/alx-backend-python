@@ -47,7 +47,7 @@ class OffensiveLanguageMiddleware:
     def __call__(self, request):
         if request.method == "POST":
             ip = self.get_client_ip(request)
-            now = time.time()
+            now = datetime.now().time
             timestamps = self.message_log[ip]
 
             while timestamps and now - timestamps[0] > self.time_window:
@@ -62,9 +62,27 @@ class OffensiveLanguageMiddleware:
         return self.get_response(request)    
 
 
-## ip request
+## ip request handling
     def get_client_ip(self, request):
         x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
         if x_forwarded_for:
             return x_forwarded_for.split(',')[0]
         return request.META.get("REMOTE_ADDR", "") 
+    
+class RolepermissionMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+        self.INCLUDE_PATHS = ["/admin/"]
+
+    def __call__(self, request):
+        if request.path not in self.INCLUDE_PATHS:
+            return self.get_response(request)
+        
+        user = request.user
+
+        if not user.is_authenticated or getattr(user, "role", None) != "Admin":
+            return  HttpResponse(
+                "Access denied: only the admin is allowed",
+                status=403
+            )
+        return self.get_response(request)

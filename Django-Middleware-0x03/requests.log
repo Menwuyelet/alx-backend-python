@@ -3,3 +3,205 @@ Method Not Allowed: /api/token/
 2025-07-27 04:39:00.711316 - User: admin@naf.com - Path: /api/token/
 2025-07-27 04:39:22.576310 - User: admin@naf.com - Path: /api/
 2025-07-27 04:39:30.381858 - User: admin@naf.com - Path: /admin/
+2025-07-27 05:25:06.644113 - User: admin@naf.com - Path: /admin/chats/user/
+Forbidden: /admin/chats/user/
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/messaging_app/settings.py changed, reloading.
+2025-07-27 05:26:29.361284 - User: admin@naf.com - Path: /admin/chats/user/
+2025-07-27 05:26:29.548082 - User: admin@naf.com - Path: /admin/jsi18n/
+2025-07-27 05:26:32.852501 - User: admin@naf.com - Path: /admin/chats/user/e6164ba8-b2d7-4f4a-aa72-167a60475c1f/change/
+2025-07-27 05:26:32.990671 - User: admin@naf.com - Path: /admin/jsi18n/
+2025-07-27 05:26:39.513512 - User: admin@naf.com - Path: /admin/chats/user/
+2025-07-27 05:26:39.576388 - User: admin@naf.com - Path: /admin/jsi18n/
+2025-07-27 05:26:45.516703 - User: admin@naf.com - Path: /admin/chats/user/1aa8c5a7-e975-416d-a2e6-6c58cc5e4c31/change/
+2025-07-27 05:26:45.591929 - User: admin@naf.com - Path: /admin/jsi18n/
+2025-07-27 05:26:50.185797 - User: admin@naf.com - Path: /admin/chats/user/
+2025-07-27 05:26:54.313033 - User: admin@naf.com - Path: /admin/chats/user/8e3b37e7-8daf-4699-a684-bb361356fc4d/change/
+2025-07-27 05:26:54.405779 - User: admin@naf.com - Path: /admin/jsi18n/
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/messaging_app/settings.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/messaging_app/settings.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/messaging_app/settings.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/messaging_app/settings.py changed, reloading.
+2025-07-27 05:29:37.034121 - User: admin@naf.com - Path: /admin/chats/user/8e3b37e7-8daf-4699-a684-bb361356fc4d/change/
+Forbidden: /admin/chats/user/8e3b37e7-8daf-4699-a684-bb361356fc4d/change/
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-07-27 05:31:10.856278 - User: admin@naf.com - Path: /admin/chats/user/8e3b37e7-8daf-4699-a684-bb361356fc4d/change/
+Forbidden: /admin/chats/user/8e3b37e7-8daf-4699-a684-bb361356fc4d/change/
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-07-27 05:32:17.320619 - User: admin@naf.com - Path: /admin/chats/user/8e3b37e7-8daf-4699-a684-bb361356fc4d/change/
+Forbidden: /admin/chats/user/8e3b37e7-8daf-4699-a684-bb361356fc4d/change/
+2025-07-27 05:32:30.079068 - User: admin@naf.com - Path: /api/token/
+Forbidden: /api/token/
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-07-27 05:32:53.295311 - User: admin@naf.com - Path: /api/token/
+Internal Server Error: /api/token/
+Traceback (most recent call last):
+  File "/home/nafiad/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py", line 77, in __call__
+    if request.path in self.EXCLUDED_PATHS:
+                       ^^^^
+NameError: name 'seld' is not defined. Did you mean: 'self'?
+2025-07-27 05:33:23.386802 - User: admin@naf.com - Path: /api/token/
+Internal Server Error: /api/token/
+Traceback (most recent call last):
+  File "/home/nafiad/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py", line 77, in __call__
+    if request.path in self.EXCLUDED_PATHS:
+                       ^^^^
+NameError: name 'seld' is not defined. Did you mean: 'self'?
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-07-27 05:34:02.515691 - User: admin@naf.com - Path: /api/token/
+Internal Server Error: /api/token/
+Traceback (most recent call last):
+  File "/home/nafiad/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+TypeError: RolepermissionMiddleware.__call__() missing 1 required positional argument: 'EXCLUDED_PATHS'
+2025-07-27 05:34:04.433251 - User: admin@naf.com - Path: /api/token/
+Internal Server Error: /api/token/
+Traceback (most recent call last):
+  File "/home/nafiad/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+TypeError: RolepermissionMiddleware.__call__() missing 1 required positional argument: 'EXCLUDED_PATHS'
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-07-27 05:35:19.609593 - User: admin@naf.com - Path: /api/token/
+Forbidden: /api/token/
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-07-27 05:35:47.617417 - User: admin@naf.com - Path: /api/token/
+Forbidden: /api/token/
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-07-27 05:37:07.267817 - User: admin@naf.com - Path: /api/token/
+Method Not Allowed: /api/token/
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-07-27 05:37:55.796301 - User: admin@naf.com - Path: /api/token/
+Internal Server Error: /api/token/
+Traceback (most recent call last):
+  File "/home/nafiad/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py", line 78, in __call__
+    if request.path not in self.EXCLUDED_PATHS:
+                           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RolepermissionMiddleware' object has no attribute 'EXCLUDED_PATHS'. Did you mean: 'INCLUDE_PATHS'?
+2025-07-27 05:37:58.088111 - User: admin@naf.com - Path: /api/token/
+Internal Server Error: /api/token/
+Traceback (most recent call last):
+  File "/home/nafiad/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py", line 78, in __call__
+    if request.path not in self.EXCLUDED_PATHS:
+                           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RolepermissionMiddleware' object has no attribute 'EXCLUDED_PATHS'. Did you mean: 'INCLUDE_PATHS'?
+2025-07-27 05:38:01.095010 - User: admin@naf.com - Path: /api/token/
+Internal Server Error: /api/token/
+Traceback (most recent call last):
+  File "/home/nafiad/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py", line 78, in __call__
+    if request.path not in self.EXCLUDED_PATHS:
+                           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RolepermissionMiddleware' object has no attribute 'EXCLUDED_PATHS'. Did you mean: 'INCLUDE_PATHS'?
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-07-27 05:38:21.837523 - User: admin@naf.com - Path: /api/token/
+Method Not Allowed: /api/token/
+2025-07-27 05:38:24.756451 - User: admin@naf.com - Path: /api/token/
+Method Not Allowed: /api/token/
+2025-07-27 05:38:27.489735 - User: admin@naf.com - Path: /api/token/
+Internal Server Error: /api/token/
+Traceback (most recent call last):
+  File "/home/nafiad/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py", line 50, in __call__
+    now = time.time()
+          ^^^^^^^^^
+AttributeError: type object 'datetime.time' has no attribute 'time'
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-07-27 05:38:55.133846 - User: admin@naf.com - Path: /api/token/
+Internal Server Error: /api/token/
+Traceback (most recent call last):
+  File "/home/nafiad/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py", line 50, in __call__
+    now = datetime.time()
+          ^^^^^^^^^^^^^^^
+TypeError: unbound method datetime.time() needs an argument
+2025-07-27 05:38:58.454074 - User: admin@naf.com - Path: /api/token/
+Internal Server Error: /api/token/
+Traceback (most recent call last):
+  File "/home/nafiad/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py", line 50, in __call__
+    now = datetime.time()
+          ^^^^^^^^^^^^^^^
+TypeError: unbound method datetime.time() needs an argument
+2025-07-27 05:39:03.122432 - User: admin@naf.com - Path: /api/token/
+Method Not Allowed: /api/token/
+2025-07-27 05:39:06.048368 - User: admin@naf.com - Path: /api/token/
+Internal Server Error: /api/token/
+Traceback (most recent call last):
+  File "/home/nafiad/.local/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py", line 50, in __call__
+    now = datetime.time()
+          ^^^^^^^^^^^^^^^
+TypeError: unbound method datetime.time() needs an argument
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-07-27 05:39:27.798140 - User: admin@naf.com - Path: /api/token/
+2025-07-27 05:39:50.251059 - User: admin@naf.com - Path: /admin/
+Forbidden: /admin/
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+/home/nafiad/ALXPRODEV/alx-backend-python/Django-Middleware-0x03/messaging_app/settings.py changed, reloading.
+2025-07-27 05:40:41.253501 - User: admin@naf.com - Path: /api/token/
+Forbidden: /api/token/
+2025-07-27 05:41:19.483178 - User: admin@naf.com - Path: /api/token/
+Forbidden: /api/token/
