@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime, time
 from django.http import HttpResponse
+from collections import defaultdict, deque
 
 logging.basicConfig(
     filename='requests.log',
@@ -34,4 +35,36 @@ class RestrictAccessByTimeMiddleware:
                 "Access denied: Outside of allowed chat hours (6pm to 9pm)",
                 status = 403
             )
-        return self.get_response
+        return self.get_response(request)
+    
+class OffensiveLanguageMiddleware:
+    def __init__(self, get_request):
+        self.get_response = get_request
+        self.message_log = defaultdict(deque)
+        self.limit = 5  
+        self.time_window = 60 
+
+    def __call__(self, request):
+        if request.method == "POST":
+            ip = self.get_client_ip(request)
+            now = time.time()
+            timestamps = self.message_log[ip]
+
+            while timestamps and now - timestamps[0] > self.time_window:
+                timestamps.popleft()
+
+            if len(timestamps) >= self.limit:
+                return HttpResponse(
+                    "Rate limit exceeded: Max 5 messages per minute allowed.",
+                    status=429
+                )   
+            timestamps.append(now)
+        return self.get_response(request)    
+
+
+## ip request
+    def get_client_ip(self, request):
+        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+        if x_forwarded_for:
+            return x_forwarded_for.split(',')[0]
+        return request.META.get("REMOTE_ADDR", "") 
