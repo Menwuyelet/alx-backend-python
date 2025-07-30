@@ -1,13 +1,10 @@
-from django.shortcuts import render
-from django.contrib.auth.models import User
-from rest_framework.generics import DestroyAPIView
-from .serializers import UserSerializer
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
-# Create your views here.
-class UserDeletView(DestroyAPIView):
-    serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
+from rest_framework.response import Response
+from rest_framework import status
 
-    
-    def get_object(self):
-        return self.request.user  
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def delete_user(request):
+    request.user.delete()
+    return Response({"detail": "User deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
