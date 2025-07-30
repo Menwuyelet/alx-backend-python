@@ -12,5 +12,5 @@ def create_message_history(sender, instance, **kwargs):
     if instance.pk:
         old_instance = Message.objects.get(pk=instance.pk)
         if old_instance.content != instance.content:
-            MessageHistory.objects.create(message=instance, old_content=old_instance.content)
+            MessageHistory.objects.create(message=instance, old_content=old_instance.content, edited_by=instance.sender)
             instance.edited = True
