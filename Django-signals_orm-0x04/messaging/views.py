@@ -5,6 +5,7 @@ from rest_framework import status
 from django.db.models import Prefetch
 from .models import Message
 from .serializers import MessageSerializer
+from django.core.cache import cache
 
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
@@ -19,6 +20,12 @@ def delete_user(request):
 @permission_classes([IsAuthenticated])
 def threaded_messages_view(request):
     sender=request.user
+    cache_key = f'unread_messages_user{sender.id}'
+    cached_data = cache.get(cache_key)
+
+    if cached_data is not None:
+        return Response(cached_data)
+
     messages = Message.objects.filter(sender=sender, parent_message__isnull=True)\
         .select_related('sender', 'receiver')\
         .prefetch_related(
@@ -29,6 +36,7 @@ def threaded_messages_view(request):
         )
 
     serializer = MessageSerializer(messages, many=True, context={'request': request})
+    cache.set(cache_key, serializer.data, timeout=60)
     return Response(serializer.data)
 
 @api_view(['GET'])
