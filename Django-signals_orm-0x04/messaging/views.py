@@ -35,6 +35,6 @@ def threaded_messages_view(request):
 @permission_classes([IsAuthenticated])
 def unread_inbox_view(request):
     user=request.user
-    unread_messages = Message.unread.for_user(user).only('id', 'sender', 'content', 'timestamp')
+    unread_messages = Message.unread.unread_for_user(user).only('id', 'sender', 'content', 'timestamp')
     serializer = MessageSerializer(unread_messages, many=True, context={'request': request})
     return Response(serializer.data)
