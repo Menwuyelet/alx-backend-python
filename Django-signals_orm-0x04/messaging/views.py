@@ -18,7 +18,7 @@ def delete_user(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def threaded_messages_view(request):
-    sender = request.user
+    sender=request.user
     messages = Message.objects.filter(sender=sender, parent_message__isnull=True)\
         .select_related('sender', 'receiver')\
         .prefetch_related(
