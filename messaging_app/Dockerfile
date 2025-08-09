@@ -14,7 +14,7 @@ ENV PYTHONUNBUFFERED 1
 COPY requirements.txt /app/
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-
+RUN apt-get update && apt-get install -y python3-dev default-libmysqlclient-dev build-essential
 # 5. Copy project files into the container
 COPY . /app/
 
