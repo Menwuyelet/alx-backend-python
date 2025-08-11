@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y python3-dev default-libmysqlclient-dev 
 COPY . /app/
 
 # 6. Expose port for Django
-EXPOSE -p 8000
+EXPOSE  8000
 
 # 7. Run Django development server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
