@@ -11,11 +11,11 @@ spec:
   template:
     metadata:
       labels:
-        app: messaging
+        app: django
         version: blue
     spec:
       containers:
-        - name: messaging
-          image: mnutemesgen/messaging-app-web:blue  # Replace with your blue version image
+        - name: django
+          image: mnutemesgen/messaging-app-web:2.0  
           ports:
             - containerPort: 8000

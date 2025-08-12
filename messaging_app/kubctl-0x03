@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -e  # Exit if any command fails
+
+DEPLOYMENT_NAME="django-blue"
+APP_URL="http://localhost:8000"  # Change if using NodePort/Ingress
+
+echo "Applying updated blue_deployment.yaml (image: 2.0)..."
+kubectl apply -f blue_deployment.yaml
+
+echo "Starting rolling update for $DEPLOYMENT_NAME..."
+kubectl rollout status deployment/$DEPLOYMENT_NAME &
+
+echo "Sending continuous requests to $APP_URL to check downtime..."
+(
+  while true; do
+    curl -s -o /dev/null -w "%{http_code}\n" $APP_URL
+    sleep 1
+  done
+) & CURL_PID=$!
+
+wait %1
+
+kill $CURL_PID || true
+
+echo "Rolling update complete!"
+
+echo "Current pods:"
+kubectl get pods -l app=django,version=blue -o wide
+
