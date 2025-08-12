@@ -1,0 +1,25 @@
+#!/bin/bash
+set -e
+
+
+DEPLOYMENT_NAME="messaging-app-deployment"
+
+# Service URL for load testing (replace with your app's service or ingress URL)
+APP_URL="http://localhost:8000" 
+
+echo "Scaling $DEPLOYMENT_NAME to 3 replicas..."
+kubectl scale deployment $DEPLOYMENT_NAME --replicas=3
+
+echo "Waiting for pods to be ready..."
+kubectl rollout status deployment/$DEPLOYMENT_NAME
+
+echo "Verifying running pods..."
+kubectl get pods -l app=$DEPLOYMENT_NAME -o wide
+
+echo "Starting load test with wrk..."
+wrk -t4 -c50 -d30s $APP_URL
+
+echo "Monitoring resource usage..."
+kubectl top pods
+
+echo "Script completed successfully!"
