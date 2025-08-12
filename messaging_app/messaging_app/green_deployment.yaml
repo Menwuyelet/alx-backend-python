@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: django
-          image: mnutemesgen/messaging-app-web:green  # Replace with your green version image
+          image: mnutemesgen/messaging-app-web:green  
           ports:
             - containerPort: 8000
