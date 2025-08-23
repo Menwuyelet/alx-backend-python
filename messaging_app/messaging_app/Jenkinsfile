@@ -4,13 +4,13 @@ pipeline {
     environment {
         VENV = ".venv"
     }
-    
+
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: 'github-creds',
-                    url: 'https://github.com/<your-username>/<your-repo>.git',
-                    branch: 'main'
+                git branch: 'main',                   
+                    credentialsId: 'github-creds',    
+                    url: 'https://github.com/<your-username>/<your-repo>.git'
             }
         }
 
@@ -20,7 +20,7 @@ pipeline {
                 python3 -m venv ${VENV}
                 . ${VENV}/bin/activate
                 pip install --upgrade pip
-                pip install -r requirements.txt
+                pip install -r messaging_app/requirements.txt   
                 """
             }
         }
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 sh """
                 . ${VENV}/bin/activate
-                pytest --junitxml=report.xml
+                pytest messaging_app --junitxml=report.xml      
                 """
             }
             post {
@@ -38,9 +38,5 @@ pipeline {
                 }
             }
         }
-    }
-
-    triggers {
-        // manual trigger only, no SCM polling
     }
 }
