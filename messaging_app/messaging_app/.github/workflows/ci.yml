@@ -48,6 +48,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r messaging_app/requirements.txt
+          pip install flake8 pytest-cov
+
+      - name: Run flake8 linting
+        run: |
+          echo "Running flake8 lint check..."
+          flake8 messaging_app --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 messaging_app --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
       - name: Wait for MySQL
         run: |
@@ -61,12 +68,24 @@ jobs:
         run: |
           python manage.py migrate --noinput
 
-      - name: Run tests
+      - name: Run tests with coverage
         run: |
-          pytest --ds=messaging_app.settings --junitxml=test-results.xml
+          pytest --ds=messaging_app.settings \
+                 --cov=messaging_app \
+                 --cov-report=xml \
+                 --cov-report=html \
+                 --junitxml=test-results.xml
 
       - name: Upload test results
         uses: actions/upload-artifact@v3
         with:
           name: pytest-results
           path: test-results.xml
+
+      - name: Upload coverage reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: |
+            coverage.xml
+            htmlcov/
